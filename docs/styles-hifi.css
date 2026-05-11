@@ -469,6 +469,9 @@ h1, h2, h3, h4 { margin: 0; font-weight: 500; }
     font-size: 16px;
   }
 
+  /* Legend: single column so fixed-width inner grid cells fit comfortably */
+  .legend-grid { grid-template-columns: 1fr; }
+
   /* Origin: single column */
   .origin { grid-template-columns: 1fr; gap: 24px; }
   .origin .body-lg { max-width: none; }
@@ -482,7 +485,4 @@ h1, h2, h3, h4 { margin: 0; font-weight: 500; }
   .hero-num { font-size: 96px; }
   .hero-num .pct { font-size: 36px; }
   .hero-tier { font-size: 22px; }
-
-  /* Legend: single column on very narrow screens */
-  .legend-grid { grid-template-columns: 1fr; }
 }
