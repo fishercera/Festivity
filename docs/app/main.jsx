@@ -2,7 +2,7 @@
 const { useState, useEffect, useCallback, useMemo } = React;
 const { F: FF, isoToDate, dateToIso, holidayShort, fillForFestivity, BrandMark } = window.FestivityHelpers;
 
-const TODAY = new Date(2026, 4, 10, 12, 0, 0);
+const TODAY = new Date();
 
 function App() {
   const initialIso = (() => {
