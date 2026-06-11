@@ -33,10 +33,11 @@ function WheelPanel({ date, year }) {
 
   // Horizontal padding inside the viewBox so rim labels don't clip on left/right.
   const padX = 110;
+  const padBottom = 20;
 
   return (
     <div className="wheel-wrap">
-      <svg viewBox={`${-padX} 0 ${SIZE + 2 * padX} ${SIZE}`} width="100%" preserveAspectRatio="xMidYMid meet">
+      <svg viewBox={`${-padX} 0 ${SIZE + 2 * padX} ${SIZE + padBottom}`} width="100%" preserveAspectRatio="xMidYMid meet">
         {/* concentric rings */}
         <circle cx={cx} cy={cy} r={rOuter} fill="none" style={{ stroke: "var(--ink)" }} strokeWidth="1.25" />
         <circle cx={cx} cy={cy} r={rInner} fill="none" style={{ stroke: "var(--ink)" }} strokeWidth="0.75" strokeDasharray="2 4" />
