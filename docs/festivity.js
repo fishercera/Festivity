@@ -231,7 +231,7 @@
     else if (date < winSol) { start = fallEq; end = winSol; }
     else {
       // Dec 21 → Dec 31: bridge into next-year's first quarter
-      const nextSpringEq = d(year + 1, ...SOLSTICE_DATES.spring);
+      const nextSpringEq = d(year + 1, ...getSolsticeDate(year + 1, 'spring'));
       start = winSol; end = nextSpringEq;
     }
     const total = end - start;
