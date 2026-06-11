@@ -136,7 +136,7 @@
 
   function findUpcomingHoliday(date, holidays) {
     for (const h of holidays) {
-      if (h.date >= date) return h;
+      if (h.date > date) return h;
     }
     return null;
   }
@@ -144,7 +144,7 @@
   function findPreviousHoliday(date, holidays) {
     let prev = null;
     for (const h of holidays) {
-      if (h.date <= date) prev = h;
+      if (h.date < date) prev = h;
       else break;
     }
     return prev;

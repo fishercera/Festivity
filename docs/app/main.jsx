@@ -28,8 +28,9 @@ function App() {
     const holidays = FF.buildHolidays(yr);
     const upcoming = FF.findUpcomingHoliday(date, holidays);
     const previous = FF.findPreviousHoliday(date, holidays);
+    const currentHoliday = holidays.find(h => h.date.getTime() === date.getTime()) || null;
     const days = upcoming ? FF.daysBetween(date, upcoming.date) : null;
-    return { date, festivity: f, tier: FF.tier(f), upcoming, previous, daysToNext: days, year: yr };
+    return { date, festivity: f, tier: FF.tier(f), upcoming, previous, currentHoliday, daysToNext: days, year: yr };
   }, [date]);
 
   // Persist date to hash (permalink)
@@ -153,10 +154,21 @@ function Hero({ reading, isToday }) {
       <div>
         <div className="lbl">Reading</div>
         <p className="body-lg" style={{ marginTop: 8 }}>
-          You are sitting between <strong>{holidayShort(reading.previous.name)}</strong> and{" "}
-          <strong>{holidayShort(reading.upcoming.name)}</strong> — about{" "}
-          <span className="mono-num" style={{ color: "var(--ink)" }}>{reading.daysToNext}</span>{" "}
-          days from the next holiday.
+          {reading.currentHoliday ? (
+            <>
+              {isToday ? "Today" : "This date"} is <strong>{holidayShort(reading.currentHoliday.name)}</strong>.{" "}
+              The next holiday is <strong>{holidayShort(reading.upcoming.name)}</strong> — about{" "}
+              <span className="mono-num" style={{ color: "var(--ink)" }}>{reading.daysToNext}</span>{" "}
+              days away.
+            </>
+          ) : (
+            <>
+              You are sitting between <strong>{holidayShort(reading.previous.name)}</strong> and{" "}
+              <strong>{holidayShort(reading.upcoming.name)}</strong> — about{" "}
+              <span className="mono-num" style={{ color: "var(--ink)" }}>{reading.daysToNext}</span>{" "}
+              days from the next holiday.
+            </>
+          )}
         </p>
         <div className="hero-meta">
           <div className="hero-meta-item">
