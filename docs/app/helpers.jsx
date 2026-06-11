@@ -41,21 +41,21 @@ function colorForFestivity(f) {
   return "var(--paper)";
 }
 function fillForFestivity(f) {
-  if (f === 1)   return "#b94121";
-  if (f === 0.5) return "#c08828";
-  return "#f4ede0";
+  if (f === 1)   return "var(--solstice)";
+  if (f === 0.5) return "var(--crossq)";
+  return "var(--paper)";
 }
 
 // ── Brand mark ──────────────────────────────────────────────────────────────
 function BrandMark() {
   return (
     <svg viewBox="0 0 26 26" className="brand-mark">
-      <circle cx="13" cy="13" r="11" fill="none" stroke="#1a1714" strokeWidth="1.25" />
-      <line x1="13" y1="2" x2="13" y2="6" stroke="#1a1714" strokeWidth="1.5" />
-      <line x1="13" y1="20" x2="13" y2="24" stroke="#1a1714" strokeWidth="1.5" />
-      <line x1="2" y1="13" x2="6" y2="13" stroke="#1a1714" strokeWidth="1.5" />
-      <line x1="20" y1="13" x2="24" y2="13" stroke="#1a1714" strokeWidth="1.5" />
-      <circle cx="13" cy="13" r="3.5" fill="#b94121" />
+      <circle cx="13" cy="13" r="11" fill="none" style={{ stroke: "var(--ink)" }} strokeWidth="1.25" />
+      <line x1="13" y1="2" x2="13" y2="6" style={{ stroke: "var(--ink)" }} strokeWidth="1.5" />
+      <line x1="13" y1="20" x2="13" y2="24" style={{ stroke: "var(--ink)" }} strokeWidth="1.5" />
+      <line x1="2" y1="13" x2="6" y2="13" style={{ stroke: "var(--ink)" }} strokeWidth="1.5" />
+      <line x1="20" y1="13" x2="24" y2="13" style={{ stroke: "var(--ink)" }} strokeWidth="1.5" />
+      <circle cx="13" cy="13" r="3.5" style={{ fill: "var(--solstice)" }} />
     </svg>
   );
 }

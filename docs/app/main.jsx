@@ -4,6 +4,15 @@ const { F: FF, isoToDate, dateToIso, holidayShort, fillForFestivity, BrandMark }
 
 const TODAY = new Date();
 
+function getSeason(date) {
+  const m = date.getMonth() + 1;
+  const d = date.getDate();
+  if ((m === 3 && d >= 20) || m === 4 || m === 5 || (m === 6 && d <= 20)) return "spring";
+  if ((m === 6 && d >= 21) || m === 7 || m === 8 || (m === 9 && d <= 21)) return "summer";
+  if ((m === 9 && d >= 22) || m === 10 || m === 11 || (m === 12 && d <= 20)) return "fall";
+  return "winter";
+}
+
 function App() {
   const initialIso = (() => {
     const m = window.location.hash.match(/date=(\d{4}-\d{2}-\d{2})/);
@@ -30,6 +39,10 @@ function App() {
       history.replaceState(null, "", newHash);
     }
   }, [iso]);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-season", getSeason(date));
+  }, [date]);
 
   const onToday   = useCallback(() => setIso(dateToIso(TODAY)), []);
   const onRandom  = useCallback(() => {

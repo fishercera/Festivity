@@ -27,6 +27,72 @@
   --shadow-2: 0 6px 20px -10px #1a17142a;
 }
 
+/* ── Seasonal themes ─────────────────────────────────────────────────────── */
+html[data-season="winter"] {
+  --paper:     #ecf2f8;
+  --paper-2:   #dce8f4;
+  --paper-3:   #c8d8ee;
+  --ink:       #0c1e38;
+  --ink-2:     #1e3a62;
+  --ink-3:     #4a6a9c;
+  --ink-4:     #7a9ccc;
+  --rule:      #0c1e38;
+  --rule-soft: #0c1e3833;
+  --rule-faint:#0c1e3811;
+  --solstice:  #1464b4;
+  --crossq:    #3a8cc8;
+  --nadir:     #2a4a7a;
+  --today:     #1464b4;
+}
+html[data-season="spring"] {
+  --paper:     #faf2f5;
+  --paper-2:   #f2e4ea;
+  --paper-3:   #e8d2db;
+  --ink:       #2a1022;
+  --ink-2:     #4c2040;
+  --ink-3:     #8a4a6a;
+  --ink-4:     #c48aaa;
+  --rule:      #2a1022;
+  --rule-soft: #2a102233;
+  --rule-faint:#2a102211;
+  --solstice:  #cc3472;
+  --crossq:    #7ec020;
+  --nadir:     #782050;
+  --today:     #cc3472;
+}
+html[data-season="summer"] {
+  --paper:     #f0f7e4;
+  --paper-2:   #e2f0cc;
+  --paper-3:   #d0e8b0;
+  --ink:       #162808;
+  --ink-2:     #2c4e14;
+  --ink-3:     #567832;
+  --ink-4:     #88aa5a;
+  --rule:      #162808;
+  --rule-soft: #16280833;
+  --rule-faint:#16280811;
+  --solstice:  #5a9a10;
+  --crossq:    #b8c820;
+  --nadir:     #3a6010;
+  --today:     #5a9a10;
+}
+html[data-season="fall"] {
+  --paper:     #f8ead6;
+  --paper-2:   #f0d8b8;
+  --paper-3:   #e4c898;
+  --ink:       #280e00;
+  --ink-2:     #4a2008;
+  --ink-3:     #8a4a18;
+  --ink-4:     #c08840;
+  --rule:      #280e00;
+  --rule-soft: #280e0033;
+  --rule-faint:#280e0011;
+  --solstice:  #d85000;
+  --crossq:    #a83000;
+  --nadir:     #6a2800;
+  --today:     #d85000;
+}
+
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {

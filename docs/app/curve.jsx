@@ -108,7 +108,7 @@ function CurvePanel({ date, year }) {
                 fontFamily="'Cormorant Garamond', serif"
                 fontStyle="italic"
                 fontSize="22"
-                fill="#b94121">today</text>
+                style={{ fill: "var(--today)" }}>today</text>
         </svg>
       </div>
     </div>

@@ -38,9 +38,9 @@ function WheelPanel({ date, year }) {
     <div className="wheel-wrap">
       <svg viewBox={`${-padX} 0 ${SIZE + 2 * padX} ${SIZE}`} width="100%" preserveAspectRatio="xMidYMid meet">
         {/* concentric rings */}
-        <circle cx={cx} cy={cy} r={rOuter} fill="none" stroke="#1a1714" strokeWidth="1.25" />
-        <circle cx={cx} cy={cy} r={rInner} fill="none" stroke="#1a1714" strokeWidth="0.75" strokeDasharray="2 4" />
-        <circle cx={cx} cy={cy} r="100" fill="none" stroke="#1a1714" strokeWidth="0.5" strokeDasharray="1 3" />
+        <circle cx={cx} cy={cy} r={rOuter} fill="none" style={{ stroke: "var(--ink)" }} strokeWidth="1.25" />
+        <circle cx={cx} cy={cy} r={rInner} fill="none" style={{ stroke: "var(--ink)" }} strokeWidth="0.75" strokeDasharray="2 4" />
+        <circle cx={cx} cy={cy} r="100" fill="none" style={{ stroke: "var(--ink)" }} strokeWidth="0.5" strokeDasharray="1 3" />
 
         {/* spokes + dots */}
         {holidays.map((h, i) => {
@@ -54,13 +54,13 @@ function WheelPanel({ date, year }) {
           return (
             <g key={i}>
               <line x1={x1} y1={y1} x2={x2} y2={y2}
-                    stroke="#1a1714"
+                    style={{ stroke: "var(--ink)" }}
                     strokeWidth={major ? 1.5 : 0.75}
                     strokeDasharray={major ? "" : isCross ? "" : "2 3"} />
               <circle cx={x2} cy={y2}
                       r={major ? 6 : isCross ? 4.5 : 3}
                       fill={fillForFestivity(h.festivity)}
-                      stroke="#1a1714" strokeWidth="1.25" />
+                      style={{ stroke: "var(--ink)" }} strokeWidth="1.25" />
             </g>
           );
         })}
@@ -88,14 +88,14 @@ function WheelPanel({ date, year }) {
         })}
 
         {/* TODAY pointer — also positioned radially by festivity */}
-        <line x1={cx} y1={cy} x2={todayX} y2={todayY} stroke="#b94121" strokeWidth="2" />
-        <circle cx={todayX} cy={todayY} r="8" fill="#f4ede0" stroke="#b94121" strokeWidth="2.5" />
-        <circle cx={cx} cy={cy} r="5" fill="#1a1714" />
+        <line x1={cx} y1={cy} x2={todayX} y2={todayY} style={{ stroke: "var(--today)" }} strokeWidth="2" />
+        <circle cx={todayX} cy={todayY} r="8" style={{ fill: "var(--paper)", stroke: "var(--today)" }} strokeWidth="2.5" />
+        <circle cx={cx} cy={cy} r="5" style={{ fill: "var(--ink)" }} />
 
         {/* center reading */}
         <text x={cx} y={cy - 8} textAnchor="middle"
               fontFamily="'IBM Plex Mono', monospace" fontSize="56" fontWeight="300"
-              fill="#b94121" letterSpacing="-0.04em">{Math.round(todayF * 100)}</text>
+              style={{ fill: "var(--today)" }} letterSpacing="-0.04em">{Math.round(todayF * 100)}</text>
         <text x={cx} y={cy + 14} textAnchor="middle" className="wheel-label"
               fontSize="10" fill="#7a7166">PERCENT FESTIVE</text>
       </svg>
